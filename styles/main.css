@@ -1,0 +1,91 @@
+/* Basic layout and design */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #3a3a3a;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+main {
+    padding: 20px;
+}
+
+h2 {
+    font-size: 1.8em;
+    margin-bottom: 15px;
+}
+
+#course-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.course-card {
+    background-color: #fff;
+    padding: 15px;
+    margin: 10px;
+    width: 200px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.course-card h3 {
+    font-size: 1.2em;
+    color: #2c3e50;
+}
+
+footer {
+    background-color: #3a3a3a;
+    color: #fff;
+    text-align: center;
+    padding: 15px;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+/* Mobile-first approach */
+@media (min-width: 600px) {
+    nav ul {
+        display: flex;
+        justify-content: center;
+    }
+
+    .course-card {
+        width: 45%;
+    }
+}
+
+@media (min-width: 900px) {
+    .course-card {
+        width: 30%;
+    }
+}

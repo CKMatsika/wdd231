@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Course Home Page - WDD231">
+    <meta name="author" content="Clemence K Matsika">
+    <title>Course Home Page</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <script defer src="scripts/main.js"></script>
+</head>
+
+<body>
+    <header>
+        <!-- Profile picture -->
+        <img src="images/profile.webp" alt="Clemence K Matsika" id="profile-picture">
+        <h1>Welcome to the Chamber of Commerce</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="https://example.com">Chamber</a></li>
+                <li><a href="https://github.com/CKMatsika/wdd231">GitHub Profile</a></li>
+                <li><a href="https://www.linkedin.com/in/clemence-matsika-09708437">LinkedIn</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Introduction</h2>
+            <p>Welcome to my course home page. Here you can find all the details regarding the WDD231 course, including the course list, credit requirements, and more!</p>
+        </section>
+
+        <section>
+            <h2>Course List</h2>
+            <div class="course-cards">
+                <!-- Dynamic course cards will be inserted here by JavaScript -->
+            </div>
+        </section>
+
+        <section>
+            <h2>Certificate Details</h2>
+            <p>This certificate program focuses on Web and Computer Programming and includes various modules in software development.</p>
+            <button id="all-courses-btn">All Courses</button>
+            <button id="wdd-courses-btn">WDD Courses</button>
+            <button id="cse-courses-btn">CSE Courses</button>
+            <p>Total Credits: <span id="total-credits">0</span></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="currentyear"></span> Clemence K Matsika, Zimbabwe</p>
+        <p id="lastModified"></p>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+</body>
+
+</html>
+
+
+
