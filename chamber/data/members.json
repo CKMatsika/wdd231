@@ -1,0 +1,68 @@
+{
+    "members": [
+      {
+        "name": "Harare Tech Solutions",
+        "address": "123 Tech Avenue, Harare",
+        "phone": "+263 4 123456",
+        "website": "http://www.haratetechsolutions.com",
+        "image": "tech-solutions.jpg",
+        "membership_level": 3,
+        "other_info": "Leading tech solutions provider in Harare."
+      },
+      {
+        "name": "Green Valley Farms",
+        "address": "456 Green Road, Harare",
+        "phone": "+263 4 654321",
+        "website": "http://www.greenvalleyfarms.com",
+        "image": "green-valley.jpg",
+        "membership_level": 2,
+        "other_info": "Sustainable farming and agriculture products."
+      },
+      {
+        "name": "ABC Legal Consultants",
+        "address": "789 Legal Street, Harare",
+        "phone": "+263 4 789012",
+        "website": "http://www.abclegal.com",
+        "image": "abc-legal.jpg",
+        "membership_level": 1,
+        "other_info": "Providing top-tier legal consultancy in Zimbabwe."
+      },
+      {
+        "name": "City Builders Ltd",
+        "address": "101 Construction Rd, Harare",
+        "phone": "+263 4 987654",
+        "website": "http://www.citybuilders.com",
+        "image": "city-builders.jpg",
+        "membership_level": 3,
+        "other_info": "Specializing in large-scale commercial construction."
+      },
+      {
+        "name": "Fresh Foods Distributors",
+        "address": "202 Fresh Market, Harare",
+        "phone": "+263 4 112233",
+        "website": "http://www.freshfoods.com",
+        "image": "fresh-foods.jpg",
+        "membership_level": 2,
+        "other_info": "Distributors of fresh produce across the country."
+      },
+      {
+        "name": "Tech Innovations Ltd",
+        "address": "303 Innovation Lane, Harare",
+        "phone": "+263 4 334455",
+        "website": "http://www.techinnovations.com",
+        "image": "tech-innovations.jpg",
+        "membership_level": 3,
+        "other_info": "Pioneering cutting-edge technological advancements."
+      },
+      {
+        "name": "Elegant Designs",
+        "address": "404 Style Blvd, Harare",
+        "phone": "+263 4 667788",
+        "website": "http://www.elegantdesigns.com",
+        "image": "elegant-designs.jpg",
+        "membership_level": 1,
+        "other_info": "Specialists in interior design and home decor."
+      }
+    ]
+  }
+  

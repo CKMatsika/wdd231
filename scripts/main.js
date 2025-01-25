@@ -40,6 +40,3 @@ document.getElementById("all-courses-btn").addEventListener("click", () => {
         courseCardsContainer.appendChild(courseCard);
     });
 });
-
-// Placeholder for filtering logic for "WDD Courses" and "CSE Courses" if needed.
-
