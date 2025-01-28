@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Membership Registration Form</title>
+    <!-- Link to the new form.css -->
+    <link rel="stylesheet" href="styles/form.css">
+</head>
+<body>
+
+<!-- Form Section -->
+<section id="form-section">
+    <h1>Membership Registration Form</h1>
+    <form action="thankyou.html" method="GET">
+        
+        <!-- Applicant's First Name -->
+        <label for="first-name" title="Applicant's First Name">
+            First Name:
+            <input type="text" id="first-name" name="first-name" required autocomplete="given-name" title="Enter your first name">
+        </label>
+
+        <!-- Applicant's Last Name -->
+        <label for="last-name" title="Applicant's Last Name">
+            Last Name:
+            <input type="text" id="last-name" name="last-name" required autocomplete="family-name" title="Enter your last name">
+        </label>
+
+        <!-- Organizational Title -->
+        <label for="org-title" title="Your Organizational Title">
+            Organizational Title:
+            <input type="text" id="org-title" name="org-title" required pattern="[A-Za-z\s\-]{7,}" title="Enter an organizational title with at least 7 characters, using only letters, spaces, and hyphens." autocomplete="organization-title">
+        </label>
+
+        <!-- Email Address -->
+        <label for="email" title="Your Email Address">
+            Email Address:
+            <input type="email" id="email" name="email" required autocomplete="email" placeholder="example@example.com" title="Enter your email address">
+        </label>
+
+        <!-- Mobile Phone Number -->
+        <label for="phone" title="Your Mobile Phone Number">
+            Mobile Number:
+            <input type="tel" id="phone" name="phone" required autocomplete="tel" title="Enter your mobile phone number">
+        </label>
+
+        <!-- Business/Organization Name -->
+        <label for="org-name" title="Business or Organization Name">
+            Business/Organization Name:
+            <input type="text" id="org-name" name="org-name" required autocomplete="organization" title="Enter the name of your business or organization">
+        </label>
+
+        <!-- Membership Level -->
+        <label for="membership-level" title="Select Membership Level">
+            Membership Level:
+            <select id="membership-level" name="membership-level" required title="Choose a membership level">
+                <option value="NP Membership">NP Membership (Non-Profit, No Fee)</option>
+                <option value="Bronze Membership">Bronze Membership</option>
+                <option value="Silver Membership">Silver Membership</option>
+                <option value="Gold Membership">Gold Membership</option>
+            </select>
+        </label>
+
+        <!-- Organization Description -->
+        <label for="org-description" title="Organization Description">
+            Business/Organization Description:
+            <textarea id="org-description" name="org-description" title="Describe your business or organization"></textarea>
+        </label>
+
+        <!-- Timestamp (Hidden Field) -->
+        <input type="hidden" id="timestamp" name="timestamp" value="">
+
+        <!-- Submit Button -->
+        <input type="submit" value="Submit" title="Submit the form">
+    </form>
+</section>
+
+<!-- Membership Level Cards -->
+<section id="membership-cards">
+    <div class="card" id="np-card">
+        <h3>NP Membership</h3>
+        <p>No fee. For non-profit organizations.</p>
+        <a href="#np-modal" class="btn" onclick="openModal('np-modal')">Learn More</a>
+    </div>
+    <div class="card" id="bronze-card">
+        <h3>Bronze Membership</h3>
+        <p>Basic benefits at an affordable price.</p>
+        <a href="#bronze-modal" class="btn" onclick="openModal('bronze-modal')">Learn More</a>
+    </div>
+    <div class="card" id="silver-card">
+        <h3>Silver Membership</h3>
+        <p>Enhanced benefits for growing businesses.</p>
+        <a href="#silver-modal" class="btn" onclick="openModal('silver-modal')">Learn More</a>
+    </div>
+    <div class="card" id="gold-card">
+        <h3>Gold Membership</h3>
+        <p>Exclusive benefits for premium clients.</p>
+        <a href="#gold-modal" class="btn" onclick="openModal('gold-modal')">Learn More</a>
+    </div>
+</section>
+
+<!-- Modals -->
+<div id="np-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('np-modal')">&times;</span>
+        <h2>NP Membership Benefits</h2>
+        <p>Non-profit organizations enjoy special support, no membership fee, and access to exclusive resources.</p>
+    </div>
+</div>
+
+<div id="bronze-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('bronze-modal')">&times;</span>
+        <h2>Bronze Membership Benefits</h2>
+        <p>Access basic benefits like event invitations and advertising discounts.</p>
+    </div>
+</div>
+
+<div id="silver-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('silver-modal')">&times;</span>
+        <h2>Silver Membership Benefits</h2>
+        <p>Silver members enjoy enhanced support, exclusive events, and promotional opportunities.</p>
+    </div>
+</div>
+
+<div id="gold-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('gold-modal')">&times;</span>
+        <h2>Gold Membership Benefits</h2>
+        <p>Gold members receive premium support, event invitations, and a spotlight on the home page.</p>
+    </div>
+</div>
+
+<script>
+    // Timestamp script
+    document.getElementById('timestamp').value = new Date().toLocaleString();
+
+    // Modal functions
+    function openModal(modalId) {
+        document.getElementById(modalId).style.display = "block";
+    }
+
+    function closeModal(modalId) {
+        document.getElementById(modalId).style.display = "none";
+    }
+</script>
+</body>
+</html>
+

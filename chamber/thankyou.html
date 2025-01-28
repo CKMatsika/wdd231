@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You for Your Submission</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<h1>Thank You for Your Submission!</h1>
+
+<p>Thank you for registering with us. Below are the details of your submission:</p>
+
+<p><strong>First Name:</strong> <span id="first-name"></span></p>
+<p><strong>Last Name:</strong> <span id="last-name"></span></p>
+<p><strong>Email Address:</strong> <span id="email"></span></p>
+<p><strong>Mobile Number:</strong> <span id="phone"></span></p>
+<p><strong>Organization Name:</strong> <span id="org-name"></span></p>
+<p><strong>Timestamp:</strong> <span id="timestamp"></span></p>
+
+<script>
+    // Display the submitted form data on the confirmation page
+    document.getElementById('first-name').textContent = new URLSearchParams(window.location.search).get('first-name');
+    document.getElementById('last-name').textContent = new URLSearchParams(window.location.search).get('last-name');
+    document.getElementById('email').textContent = new URLSearchParams(window.location.search).get('email');
+    document.getElementById('phone').textContent = new URLSearchParams(window.location.search).get('phone');
+    document.getElementById('org-name').textContent = new URLSearchParams(window.location.search).get('org-name');
+    document.getElementById('timestamp').textContent = new URLSearchParams(window.location.search).get('timestamp');
+</script>
+
+</body>
+</html>
