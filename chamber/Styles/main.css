@@ -317,4 +317,7 @@ footer {
 
 .mt-2 {
     margin-top: 2rem;
-}
+}<link rel="stylesheet" href="styles/main.css?v=1.1">
+<!-- In your discover.html -->
+<link rel="stylesheet" href="./styles/main.css"> <!-- Use relative path -->
+
