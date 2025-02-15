@@ -1,92 +1,322 @@
-/* Basic layout and design */
-body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
+/* Reset and Base Styles */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f5f5f5;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header Styles */
 header {
-    background-color: #3a3a3a;
-    color: #fff;
-    padding: 20px;
-    text-align: center;
+    background-color: #003366;
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
 }
 
-nav ul {
-    list-style: none;
-    padding: 0;
-}
-
-nav ul li {
-    display: inline-block;
-    margin-right: 20px;
-}
-
-nav ul li a {
-    color: #fff;
-    text-decoration: none;
-}
-
-nav ul li a:hover {
-    text-decoration: underline;
-}
-
-main {
-    padding: 20px;
-}
-
-h2 {
-    font-size: 1.8em;
-    margin-bottom: 15px;
-}
-
-#course-list {
+header .container {
     display: flex;
-    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.course-card {
-    background-color: #fff;
-    padding: 15px;
-    margin: 10px;
-    width: 200px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+.logo img {
+    height: 60px;
+    width: auto;
 }
 
-.course-card h3 {
-    font-size: 1.2em;
-    color: #2c3e50;
+.navigation ul {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
 }
 
-footer {
-    background-color: #3a3a3a;
-    color: #fff;
+.navigation a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.navigation a:hover {
+    color: #ff9900;
+}
+
+/* Welcome Banner */
+.welcome-banner {
+    background-color: #003366;
+    color: white;
     text-align: center;
-    padding: 15px;
+    padding: 7rem 0 4rem;
+    margin-bottom: 2rem;
 }
 
-footer p {
-    margin: 5px 0;
+.welcome-banner h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
 }
 
-/* Mobile-first approach */
-@media (min-width: 600px) {
-    nav ul {
-        display: flex;
-        justify-content: center;
+.welcome-banner p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* Discover Section */
+.discover-section {
+    padding: 2rem 0;
+}
+
+.discover-section h2 {
+    color: #003366;
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+/* Places Grid */
+.places-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+/* Place Cards */
+.place-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.place-card:hover {
+    transform: translateY(-5px);
+}
+
+.place-image {
+    height: 250px;
+    overflow: hidden;
+}
+
+.place-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.place-card:hover .place-image img {
+    transform: scale(1.05);
+}
+
+.place-content {
+    padding: 1.5rem;
+}
+
+.place-content h3 {
+    color: #003366;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.place-content address {
+    color: #666;
+    font-style: italic;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.place-content p {
+    color: #333;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.learn-more-btn {
+    background-color: #003366;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 1rem;
+}
+
+.learn-more-btn:hover {
+    background-color: #004480;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #003366;
+    color: white;
+    padding: 4rem 0 1rem;
+    margin-top: 4rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4rem;
+    margin-bottom: 2rem;
+}
+
+.footer-section h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-section a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+    color: #ff9900;
+}
+
+.footer-section p {
+    margin-bottom: 0.8rem;
+    opacity: 0.9;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-bottom p {
+    opacity: 0.7;
+    font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .places-grid {
+        gap: 1.5rem;
     }
 
-    .course-card {
-        width: 45%;
+    .place-image {
+        height: 200px;
     }
 }
 
-@media (min-width: 900px) {
-    .course-card {
-        width: 30%;
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    .logo {
+        margin-bottom: 1rem;
+    }
+
+    .navigation ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .welcome-banner {
+        padding: 8rem 0 3rem;
+    }
+
+    .welcome-banner h1 {
+        font-size: 2rem;
+    }
+
+    .places-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
     }
 }
+
+@media (max-width: 480px) {
+    .welcome-banner h1 {
+        font-size: 1.8rem;
+    }
+
+    .discover-section h2 {
+        font-size: 2rem;
+    }
+
+    .place-content {
+        padding: 1rem;
+    }
+
+    .place-content h3 {
+        font-size: 1.3rem;
+    }
+
+    .footer-section {
+        text-align: center;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.place-card {
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Utility Classes */
+.text-center {
+    text-align: center;
+}
+
+.mb-1 {
+    margin-bottom: 1rem;
+}
+
+.mb-2 {
+    margin-bottom: 2rem;
+}
+
+.mt-1 {
+    margin-top: 1rem;
+}
+
+.mt-2 {
+    margin-top: 2rem;
+}
+
 
