@@ -154,4 +154,79 @@ fetchItemsData();
 
 // 13. Initial Items Display
 createItems(itemsData);
+// js/integration.js
+document.addEventListener('DOMContentLoaded', () => {
+    // Initialize all demonstrations
+    loadInventoryData();
+    initializeSalesChart();
+    setupLiveUpdates();
+});
 
+// Simulated inventory data (replace with actual API calls)
+async function loadInventoryData() {
+    const inventoryDisplay = document.getElementById('inventoryData');
+    
+    try {
+        // Simulate API call
+        const data = await simulateInventoryAPI();
+        
+        inventoryDisplay.innerHTML = data.map(item => `
+            <div class="stock-item ${item.stock < item.minimum ? 'low-stock' : ''}">
+                <h4>${item.name}</h4>
+                <p>Stock Level: ${item.stock}</p>
+                <p>Status: ${getStockStatus(item)}</p>
+            </div>
+        `).join('');
+    } catch (error) {
+        inventoryDisplay.innerHTML = '<p class="error">Error loading inventory data</p>';
+    }
+}
+
+// Sales Chart Initialization
+function initializeSalesChart() {
+    const ctx = document.getElementById('salesChart').getContext('2d');
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+            datasets: [{
+                label: 'Sales Performance',
+                data: [12, 19, 3, 5, 2, 3],
+                borderColor: '#003366',
+                tension: 0.1
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false
+        }
+    });
+}
+
+// Helper Functions
+function getStockStatus(item) {
+    if (item.stock < item.minimum) {
+        return 'Low Stock Alert';
+    }
+    return 'Adequate';
+}
+
+// Simulated API call (replace with actual API)
+function simulateInventoryAPI() {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve([
+                { name: 'Product A', stock: 150, minimum: 100 },
+                { name: 'Product B', stock: 80, minimum: 100 },
+                { name: 'Product C', stock: 200, minimum: 100 }
+            ]);
+        }, 1000);
+    });
+}
+
+// Live updates setup
+function setupLiveUpdates() {
+    setInterval(() => {
+        loadInventoryData();
+    }, 60000); // Update every minute
+}
