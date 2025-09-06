@@ -1,0 +1,177 @@
+/* Larger Screen Styles - Desktop First Enhancement */
+
+@media screen and (min-width: 768px) {
+    
+    /* Header adjustments for larger screens */
+    .hamburger {
+        display: none;
+    }
+
+    /* Profile section for larger screens */
+    .profile-image {
+        width: 60px; /* Larger profile picture */
+        height: 60px;
+    }
+
+    .student-name {
+        font-size: 1.5rem;
+    }
+
+    /* Navigation - Desktop Layout */
+    nav {
+        position: static;
+        background-color: transparent;
+        max-height: none;
+        overflow: visible;
+    }
+
+    .nav-menu {
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+    }
+
+    .nav-menu li {
+        border-bottom: none;
+    }
+
+    .nav-menu a {
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .nav-menu a::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+        transition: left 0.5s;
+    }
+
+    .nav-menu a:hover::before {
+        left: 100%;
+    }
+
+    /* Main content adjustments */
+    main {
+        padding: 1.5rem 2rem; /* Reduced top padding */
+    }
+
+    h1 {
+        font-size: 3rem;
+        margin-top: 1.5rem; /* Reduced top margin */
+        margin-bottom: 1.5rem; /* Reduced bottom margin */
+    }
+
+    /* Two-column layout for larger sections */
+    .about-section .about-content {
+        columns: 2;
+        column-gap: 2rem;
+        text-align: left;
+    }
+
+    /* Courses grid for larger screens */
+    .courses-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+    }
+
+    /* Enhanced course cards */
+    .course-card {
+        padding: 2rem;
+    }
+
+    .course-card:hover {
+        transform: translateY(-5px);
+    }
+
+    /* Filter buttons enhanced */
+    .filter-buttons {
+        gap: 1rem;
+    }
+
+    .filter-btn {
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+    }
+
+    /* Learning section improvements */
+    .learning-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        align-items: start;
+    }
+
+    .learning-content ul {
+        margin-top: 0;
+    }
+
+    /* Footer enhancements */
+    .social-links {
+        gap: 1.5rem;
+    }
+
+    .social-links a {
+        padding: 1rem;
+        font-size: 1.2rem;
+    }
+}
+
+/* Extra large screens */
+@media screen and (min-width: 1200px) {
+    
+    /* Larger container for extra wide screens */
+    main {
+        max-width: 1400px;
+        padding: 2rem 2rem; /* Reduced top padding */
+    }
+
+    /* Three-column grid for courses */
+    .courses-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* Enhanced typography */
+    h1 {
+        font-size: 3.5rem;
+        margin-top: 2rem; /* Reduced top margin */
+        margin-bottom: 2rem; /* Reduced bottom margin */
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    /* Larger sections with more spacing */
+    section:not(.hero-section) {
+        padding: 2rem 4rem; /* Reduced padding */
+        margin: 0;
+    }
+
+    .hero-section {
+        padding: 2.5rem 4rem; /* Reduced padding */
+    }
+
+    /* Enhanced course cards for very large screens */
+    .course-card {
+        padding: 2.5rem;
+    }
+
+    /* Better content organization */
+    .about-content p {
+        font-size: 1.1rem;
+        line-height: 1.8;
+    }
+
+    /* Credits display enhancement */
+    .credits-display {
+        font-size: 1.3rem;
+        padding: 1.5rem;
+    }
+}
