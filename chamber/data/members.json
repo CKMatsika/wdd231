@@ -1,0 +1,65 @@
+[
+  {
+    "name": "Harare Tech Innovators",
+    "address": "100 Tech Park, Harare",
+    "phone": "+263 4 111-2222",
+    "website": "https://www.hararetech.co.zw",
+    "image": "images/tech-innovators.png",
+    "membershipLevel": 3,
+    "description": "Leading the charge in software development and IT solutions."
+  },
+  {
+    "name": "Zimbabwean Artisans Collective",
+    "address": "25 Craft Market, Mbare, Harare",
+    "phone": "+263 4 333-4444",
+    "website": "https://www.zimartisans.co.zw",
+    "image": "images/artisans-collective.png",
+    "membershipLevel": 2,
+    "description": "A collective of local artists and craftsmen showcasing traditional Zimbabwean art."
+  },
+  {
+    "name": "GreenLeaf Farming",
+    "address": "55 Agricultural Drive, Harare",
+    "phone": "+263 4 555-6666",
+    "website": "https://www.greenleaffarming.co.zw",
+    "image": "images/greenleaf-farming.png",
+    "membershipLevel": 3,
+    "description": "Sustainable and organic farming practices for a healthier Zimbabwe."
+  },
+  {
+    "name": "Savanna Safari Tours",
+    "address": "8 Adventure Avenue, Harare",
+    "phone": "+263 4 777-8888",
+    "website": "https://www.savannasafari.co.zw",
+    "image": "images/savanna-tours.png",
+    "membershipLevel": 2,
+    "description": "Unforgettable wildlife safari experiences across Zimbabwe."
+  },
+  {
+    "name": "City Cafe & Bistro",
+    "address": "12 Main Street, Harare",
+    "phone": "+263 4 999-0000",
+    "website": "https://www.citycafe.co.zw",
+    "image": "images/city-cafe.png",
+    "membershipLevel": 1,
+    "description": "The best coffee and light meals in the heart of the city."
+  },
+  {
+    "name": "ConstructZim Builders",
+    "address": "300 Industrial Road, Harare",
+    "phone": "+263 4 222-3333",
+    "website": "https://www.constructzim.co.zw",
+    "image": "images/construct-zim.png",
+    "membershipLevel": 3,
+    "description": "Building the future of Harare with quality construction and engineering."
+  },
+  {
+    "name": "Premier Legal Advisors",
+    "address": "40 Justice Way, Harare",
+    "phone": "+263 4 444-5555",
+    "website": "https://www.premierlegal.co.zw",
+    "image": "images/premier-legal.png",
+    "membershipLevel": 1,
+    "description": "Expert legal services for businesses and individuals."
+  }
+]
