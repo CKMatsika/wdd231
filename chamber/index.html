@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home - Harare Chamber of Commerce</title>
+  <meta name="description" content="Welcome to the Harare Chamber of Commerce. Building Business Together." />
+  <meta name="author" content="Clemence K Matsika" />
+
+  <!-- Social Media Meta Tags - Remember to update [your-domain] before publishing -->
+  <meta property="og:title" content="Harare Chamber of Commerce" />
+  <meta property="og:description" content="Building Business Together in Harare, Zimbabwe." />
+  <meta property="og:image" content="https://[your-domain]/images/Logo.PNG" />
+  <meta property="og:url" content="https://[your-domain]/chamber/index.html" />
+
+  <link rel="icon" href="images/favicon.ico" />
+  <link rel="stylesheet" href="CSS/styles.css" />
+  <style>
+    /* Minimal, page-specific helpers that don't conflict with existing CSS */
+    .hero-home {
+      display: grid;
+      align-items: center;
+      justify-items: center;
+      padding: 3rem 1rem;
+      background: linear-gradient(135deg, rgba(47,79,47,0.9), rgba(218,165,32,0.6));
+      color: #fff;
+      border-radius: 10px;
+      text-align: center;
+    }
+    .hero-home h1 { margin: 0 0 0.5rem 0; font-size: 2.2rem; }
+    .hero-home p { margin: 0; max-width: 60ch; }
+
+    .cta { text-align: center; margin: 2rem 0; }
+    .cta a {
+      display: inline-block; padding: 0.8rem 1.2rem; border-radius: 6px;
+      background: var(--primary-color); color: #fff; text-decoration: none; font-weight: bold;
+    }
+
+    .sections-grid {
+      display: grid; gap: 1.5rem; grid-template-columns: 1fr; margin-top: 2rem;
+    }
+    .card {
+      background: var(--card-background); border: 1px solid #ddd; border-radius: 10px; padding: 1.2rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    .card h2 { margin-top: 0; color: var(--primary-color); }
+
+    .weather-today { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; align-items: center; }
+    .weather-today .temp { font-size: 2rem; font-weight: bold; }
+    .forecast { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 0.8rem; margin-top: 1rem; }
+    .forecast .day { border: 1px solid #eee; border-radius: 8px; padding: 0.8rem; text-align: center; background: #fafafa; }
+
+    @media (max-width: 768px) {
+      .weather-today { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <a href="index.html" class="logo-link">
+        <img src="images/Logo.PNG" alt="Harare Chamber Logo" />
+        <div class="logo-text">
+          <h1>Harare National Chamber of Commerce</h1>
+          <p>Building Business Together</p>
+        </div>
+      </a>
+      <nav>
+        <a href="index.html" class="active">Home</a>
+        <a href="#">Discover</a>
+        <a href="directory.html">Directory</a>
+        <a href="join.html">Join</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero-home">
+      <h1>Welcome to the Harare Chamber of Commerce</h1>
+      <p>Connecting businesses, fostering growth, and building a stronger community across Harare and beyond.</p>
+    </section>
+
+    <section class="cta">
+      <a href="join.html" aria-label="Join the Chamber of Commerce">Become a Member</a>
+    </section>
+
+    <section class="sections-grid">
+      <article class="card" id="events">
+        <h2>Current Events</h2>
+        <ul>
+          <li><strong>Business Breakfast:</strong> Tuesday 8:00 AM — Networking at City Center.</li>
+          <li><strong>Export Readiness Workshop:</strong> Thursday 2:00 PM — Strategies for regional markets.</li>
+          <li><strong>Monthly General Meeting:</strong> Last Friday 4:00 PM — Updates and member highlights.</li>
+        </ul>
+      </article>
+
+      <article class="card" id="weather">
+        <h2>Local Weather</h2>
+        <div class="weather-today">
+          <div>
+            <div class="temp"><span id="weather-temp">--</span>°</div>
+            <div id="weather-desc">Loading...</div>
+          </div>
+          <div id="weather-extra"></div>
+        </div>
+        <div class="forecast" id="forecast-container" aria-label="3-day forecast"></div>
+      </article>
+
+      <article class="card" id="spotlights">
+        <h2>Member Spotlights</h2>
+        <div id="spotlights-container" class="members-grid"></div>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div class="contact-info">
+        <h3>Contact Information</h3>
+        <p><strong>Address:</strong> 123 Business Avenue, Harare, Zimbabwe</p>
+        <p><strong>Phone:</strong> +263 4 123-4567</p>
+        <p><strong>Email:</strong> info@hararechamber.org</p>
+      </div>
+
+      <div class="social-media">
+        <h3>Follow Us</h3>
+        <div class="social-links">
+          <a href="#" aria-label="Our Facebook Page">
+            <img src="images/facebook.PNG" alt="Facebook" />
+          </a>
+          <a href="#" aria-label="Our Twitter Profile">
+            <img src="images/twitter.PNG" alt="Twitter" />
+          </a>
+          <a href="#" aria-label="Our LinkedIn Profile">
+            <img src="images/linkedin.PNG" alt="LinkedIn" />
+          </a>
+        </div>
+      </div>
+
+      <div class="site-info">
+        <h3>Site Information</h3>
+        <p>&copy; <span id="copyright-year"></span> Harare Chamber of Commerce</p>
+        <p><strong>Developer:</strong> Clemence K Matsika</p>
+        <p><strong>Course:</strong> WDD 231</p>
+        <p><strong>Last Modified:</strong> <span id="last-modified"></span></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Load your local config with your API key (you will create config.js based on config.example.js) -->
+  <script src="JavaScript/config.js" defer></script>
+  <script src="JavaScript/weather.js" defer></script>
+  <script src="JavaScript/spotlights.js" defer></script>
+</body>
+</html>
