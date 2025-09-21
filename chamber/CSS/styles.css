@@ -14,6 +14,27 @@ body {
     color: var(--text-color);
 }
 
+/* Skip Link */
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+.skip-link:focus {
+    left: 1rem;
+    top: 1rem;
+    width: auto;
+    height: auto;
+    background: #000;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    z-index: 1000;
+}
+
 /* Header */
 header {
     background-color: #fff;
@@ -52,16 +73,35 @@ header {
     font-size: 0.8rem;
 }
 
-nav a {
-    margin-left: 20px;
+/* Navigation */
+nav {
+    position: relative;
+}
+nav .nav-toggle {
+    display: none;
+    background: none;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    padding: 0.4rem 0.6rem;
+    border-radius: 6px;
+    font-weight: bold;
+}
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 10px;
+}
+nav li a {
     text-decoration: none;
     color: var(--text-color);
     font-weight: bold;
     padding: 5px 10px;
     border-radius: 5px;
 }
-
-nav a.active {
+nav li a.active,
+nav li a[aria-current="page"] {
     background-color: var(--primary-color);
     color: #fff;
 }
@@ -230,7 +270,6 @@ footer p, footer a {
     opacity: 0.7; /* Dims the icon slightly when you hover over it */
 }
 
-
 /* ---------------------------------- */
 /* Responsive Design for Mobile       */
 /* ---------------------------------- */
@@ -243,10 +282,22 @@ footer p, footer a {
 
     nav {
         margin-top: 1rem;
+        width: 100%;
     }
-
-    nav a {
-        margin: 0 10px;
+    nav .nav-toggle {
+        display: inline-block;
+    }
+    nav ul {
+        display: none;
+        flex-direction: column;
+        gap: 0.5rem;
+        margin-top: 0.8rem;
+    }
+    nav.open ul {
+        display: flex;
+    }
+    nav li a {
+        padding: 0.8rem 1rem;
     }
 
     /* Make member LIST view stack vertically */
@@ -264,4 +315,27 @@ footer p, footer a {
     .hero h1 {
         font-size: 2rem;
     }
+
+    /* CTA button full-width on small screens */
+    .cta a {
+        display: block;
+        width: 100%;
+    }
+}
+
+/* Hero image responsiveness (used on home page) */
+.hero-home img {
+    width: 100%;
+    height: auto;
+    max-height: 520px;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+/* CTA button improvements */
+.cta a {
+    min-height: 44px;
+    line-height: 1.2;
 }
