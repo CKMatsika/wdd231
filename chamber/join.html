@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Join - Harare Chamber of Commerce</title>
+    <meta name="description" content="Join the Harare Chamber of Commerce. Apply for membership today." />
+    <meta name="author" content="Clemence K Matsika" />
+
+    <!-- Social Media Meta Tags - Remember to update [your-domain] before publishing -->
+    <meta property="og:title" content="Join Harare Chamber of Commerce" />
+    <meta property="og:description" content="Apply for membership with the Harare Chamber of Commerce." />
+    <meta property="og:image" content="https://[your-domain]/images/Logo.PNG" />
+    <meta property="og:url" content="https://[your-domain]/chamber/join.html" />
+
+    <link rel="icon" href="images/favicon.ico" />
+    <link rel="stylesheet" href="CSS/styles.css" />
+    <style>
+        /* Join Page Specific Styles */
+        .join-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .form-section {
+            background: var(--card-background);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .form-section h1 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .form-group input[type="submit"] {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .form-group input[type="submit"]:hover {
+            background: #1e3a1e;
+        }
+
+        .membership-cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .membership-card {
+            background: var(--card-background);
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            border: 2px solid #ddd;
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .membership-card:nth-child(1) { animation-delay: 0.2s; }
+        .membership-card:nth-child(2) { animation-delay: 0.4s; }
+        .membership-card:nth-child(3) { animation-delay: 0.6s; }
+        .membership-card:nth-child(4) { animation-delay: 0.8s; }
+
+        .membership-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .membership-card.np {
+            border-left: 5px solid #28a745;
+        }
+
+        .membership-card.bronze {
+            border-left: 5px solid #cd7f32;
+        }
+
+        .membership-card.silver {
+            border-left: 5px solid #c0c0c0;
+        }
+
+        .membership-card.gold {
+            border-left: 5px solid #ffd700;
+        }
+
+        .membership-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .membership-card .price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        .membership-card .np-price {
+            color: #28a745;
+        }
+
+        .membership-card button {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .membership-card button:hover {
+            background: #1e3a1e;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 10% auto;
+            padding: 2rem;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 600px;
+            position: relative;
+        }
+
+        .close {
+            position: absolute;
+            right: 1rem;
+            top: 1rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #aaa;
+        }
+
+        .close:hover {
+            color: #000;
+        }
+
+        .modal h2 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .modal ul {
+            list-style-type: disc;
+            padding-left: 1.5rem;
+        }
+
+        .modal li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .join-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .membership-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .form-section {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo-link">
+                <img src="images/Logo.PNG" alt="Harare Chamber Logo" />
+                <div class="logo-text">
+                    <h1>Harare National Chamber of Commerce</h1>
+                    <p>Building Business Together</p>
+                </div>
+            </a>
+            <nav id="site-nav">
+                <button class="nav-toggle" aria-expanded="false" aria-controls="primary-menu">Menu</button>
+                <ul id="primary-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">Discover</a></li>
+                    <li><a href="directory.html">Directory</a></li>
+                    <li><a href="join.html" class="active" aria-current="page">Join</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main">
+        <div class="hero">
+            <h1>Join the Chamber</h1>
+            <p>Become part of Zimbabwe's premier business community</p>
+        </div>
+
+        <div class="join-container">
+            <section class="form-section">
+                <h1>Membership Application</h1>
+                <form action="thankyou.html" method="get">
+                    <div class="form-group">
+                        <label for="fname">First Name *</label>
+                        <input type="text" id="fname" name="fname" title="Enter your first name" autocomplete="given-name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="lname">Last Name *</label>
+                        <input type="text" id="lname" name="lname" title="Enter your last name" autocomplete="family-name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="title">Organizational Title *</label>
+                        <input type="text" id="title" name="title" title="Enter your position/title within the organization" autocomplete="organization-title" pattern="[A-Za-z\s\-]{7,}" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" title="Enter a valid email address" autocomplete="email" placeholder="your.email@example.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Mobile Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" title="Enter your mobile phone number" autocomplete="tel" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="organization">Business/Organization Name *</label>
+                        <input type="text" id="organization" name="organization" title="Enter your business or organization name" autocomplete="organization" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="membership">Membership Level</label>
+                        <select id="membership" name="membership" title="Select your preferred membership level">
+                            <option value="np">NP Membership (Non-Profit) - No Fee</option>
+                            <option value="bronze">Bronze Membership</option>
+                            <option value="silver">Silver Membership</option>
+                            <option value="gold">Gold Membership</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Business Description</label>
+                        <textarea id="description" name="description" title="Describe your business or organization" rows="4"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="hidden" id="timestamp" name="timestamp">
+                    </div>
+
+                    <div class="form-group">
+                        <input type="submit" value="Apply for Membership">
+                    </div>
+                </form>
+            </section>
+
+            <section class="membership-cards">
+                <article class="membership-card np">
+                    <h3>NP Membership</h3>
+                    <p class="price np-price">FREE</p>
+                    <p>For non-profit organizations</p>
+                    <button onclick="openModal('npModal')">Learn More</button>
+                </article>
+
+                <article class="membership-card bronze">
+                    <h3>Bronze Membership</h3>
+                    <p class="price">$500/year</p>
+                    <p>Perfect for small businesses</p>
+                    <button onclick="openModal('bronzeModal')">Learn More</button>
+                </article>
+
+                <article class="membership-card silver">
+                    <h3>Silver Membership</h3>
+                    <p class="price">$1,000/year</p>
+                    <p>For growing companies</p>
+                    <button onclick="openModal('silverModal')">Learn More</button>
+                </article>
+
+                <article class="membership-card gold">
+                    <h3>Gold Membership</h3>
+                    <p class="price">$2,500/year</p>
+                    <p>Premium benefits & recognition</p>
+                    <button onclick="openModal('goldModal')">Learn More</button>
+                </article>
+            </section>
+        </div>
+
+        <!-- Modals -->
+        <div id="npModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('npModal')">&times;</span>
+                <h2>NP Membership Benefits</h2>
+                <ul>
+                    <li>Directory listing in member portal</li>
+                    <li>Access to networking events</li>
+                    <li>Monthly newsletter subscription</li>
+                    <li>Certificate of membership</li>
+                    <li>Basic business resources</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="bronzeModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('bronzeModal')">&times;</span>
+                <h2>Bronze Membership Benefits</h2>
+                <ul>
+                    <li>All NP benefits</li>
+                    <li>Enhanced directory listing with logo</li>
+                    <li>Quarterly business workshops</li>
+                    <li>10% discount on event tickets</li>
+                    <li>Member spotlight opportunities</li>
+                    <li>Basic advertising credits</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="silverModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('silverModal')">&times;</span>
+                <h2>Silver Membership Benefits</h2>
+                <ul>
+                    <li>All Bronze benefits</li>
+                    <li>Priority event registration</li>
+                    <li>Monthly one-on-one consultations</li>
+                    <li>20% discount on all events</li>
+                    <li>Featured member spotlight</li>
+                    <li>Advanced advertising package</li>
+                    <li>Export readiness support</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="goldModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('goldModal')">&times;</span>
+                <h2>Gold Membership Benefits</h2>
+                <ul>
+                    <li>All Silver benefits</li>
+                    <li>VIP access to all events</li>
+                    <li>Weekly executive consultations</li>
+                    <li>Free event tickets for 2 attendees</li>
+                    <li>Premium homepage spotlight</li>
+                    <li>Exclusive networking dinners</li>
+                    <li>Priority business referrals</li>
+                    <li>Dedicated account management</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="contact-info">
+                <h3>Contact Information</h3>
+                <p><strong>Address:</strong> 123 Business Avenue, Harare, Zimbabwe</p>
+                <p><strong>Phone:</strong> +263 4 123-4567</p>
+                <p><strong>Email:</strong> info@hararechamber.org</p>
+            </div>
+
+            <div class="social-media">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#" aria-label="Our Facebook Page">
+                        <img src="images/facebook.PNG" alt="Facebook" width="30" height="30" loading="lazy" />
+                    </a>
+                    <a href="#" aria-label="Our Twitter Profile">
+                        <img src="images/twitter.PNG" alt="Twitter" width="30" height="30" loading="lazy" />
+                    </a>
+                    <a href="#" aria-label="Our LinkedIn Profile">
+                        <img src="images/linkedin.PNG" alt="LinkedIn" width="30" height="30" loading="lazy" />
+                    </a>
+                </div>
+            </div>
+
+            <div class="site-info">
+                <h3>Site Information</h3>
+                <p>&copy; <span id="copyright-year"></span> Harare Chamber of Commerce</p>
+                <p><strong>Developer:</strong> Clemence K Matsika</p>
+                <p><strong>Course:</strong> WDD 231</p>
+                <p><strong>Last Modified:</strong> <span id="last-modified"></span></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Set timestamp when form loads
+        document.getElementById('timestamp').value = new Date().toLocaleString();
+
+        // Modal functionality
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+            }
+        }
+
+        // Mobile navigation
+        document.addEventListener('DOMContentLoaded', () => {
+            const nav = document.getElementById('site-nav');
+            const toggle = nav ? nav.querySelector('.nav-toggle') : null;
+            if (toggle && nav) {
+                toggle.addEventListener('click', () => {
+                    const isOpen = nav.classList.toggle('open');
+                    toggle.setAttribute('aria-expanded', String(isOpen));
+                });
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thank You - Harare Chamber of Commerce</title>
+    <meta name="description" content="Thank you for your membership application to the Harare Chamber of Commerce." />
+    <meta name="author" content="Clemence K Matsika" />
+
+    <!-- Social Media Meta Tags - Remember to update [your-domain] before publishing -->
+    <meta property="og:title" content="Thank You - Harare Chamber of Commerce" />
+    <meta property="og:description" content="Thank you for applying for membership." />
+    <meta property="og:image" content="https://[your-domain]/images/Logo.PNG" />
+    <meta property="og:url" content="https://[your-domain]/chamber/thankyou.html" />
+
+    <link rel="icon" href="images/favicon.ico" />
+    <link rel="stylesheet" href="CSS/styles.css" />
+    <style>
+        /* Thank You Page Specific Styles */
+        .thank-you-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .success-message {
+            background: linear-gradient(135deg, #28a745, #34ce57);
+            color: white;
+            padding: 3rem;
+            border-radius: 15px;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .success-message h1 {
+            margin: 0 0 1rem 0;
+            font-size: 2.5rem;
+        }
+
+        .success-message p {
+            margin: 0;
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .application-summary {
+            background: var(--card-background);
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            text-align: left;
+        }
+
+        .application-summary h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .summary-item {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .summary-item h3 {
+            margin: 0 0 0.5rem 0;
+            color: var(--primary-color);
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .summary-item p {
+            margin: 0;
+            color: #555;
+            font-weight: 500;
+        }
+
+        .next-steps {
+            background: linear-gradient(135deg, var(--primary-color), #1e3a1e);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-top: 2rem;
+        }
+
+        .next-steps h2 {
+            margin: 0 0 1rem 0;
+            color: var(--secondary-color);
+        }
+
+        .next-steps ul {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+        }
+
+        .next-steps li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .next-steps li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--secondary-color);
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            margin-top: 1.5rem;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background: #b8941f;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .thank-you-container {
+                padding: 1rem;
+            }
+
+            .success-message {
+                padding: 2rem 1.5rem;
+            }
+
+            .success-message h1 {
+                font-size: 2rem;
+            }
+
+            .summary-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo-link">
+                <img src="images/Logo.PNG" alt="Harare Chamber Logo" />
+                <div class="logo-text">
+                    <h1>Harare National Chamber of Commerce</h1>
+                    <p>Building Business Together</p>
+                </div>
+            </a>
+            <nav id="site-nav">
+                <button class="nav-toggle" aria-expanded="false" aria-controls="primary-menu">Menu</button>
+                <ul id="primary-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">Discover</a></li>
+                    <li><a href="directory.html">Directory</a></li>
+                    <li><a href="join.html">Join</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main">
+        <div class="thank-you-container">
+            <div class="success-message">
+                <h1>Thank You!</h1>
+                <p>Your membership application has been successfully submitted. We will review your application and contact you within 2-3 business days.</p>
+            </div>
+
+            <div class="application-summary">
+                <h2>Application Summary</h2>
+                <div class="summary-grid">
+                    <div class="summary-item">
+                        <h3>First Name</h3>
+                        <p id="display-fname">Loading...</p>
+                    </div>
+
+                    <div class="summary-item">
+                        <h3>Last Name</h3>
+                        <p id="display-lname">Loading...</p>
+                    </div>
+
+                    <div class="summary-item">
+                        <h3>Organizational Title</h3>
+                        <p id="display-title">Loading...</p>
+                    </div>
+
+                    <div class="summary-item">
+                        <h3>Email Address</h3>
+                        <p id="display-email">Loading...</p>
+                    </div>
+
+                    <div class="summary-item">
+                        <h3>Mobile Phone</h3>
+                        <p id="display-phone">Loading...</p>
+                    </div>
+
+                    <div class="summary-item">
+                        <h3>Organization</h3>
+                        <p id="display-organization">Loading...</p>
+                    </div>
+
+                    <div class="summary-item">
+                        <h3>Membership Level</h3>
+                        <p id="display-membership">Loading...</p>
+                    </div>
+
+                    <div class="summary-item">
+                        <h3>Application Date</h3>
+                        <p id="display-timestamp">Loading...</p>
+                    </div>
+                </div>
+
+                <div class="summary-item" style="grid-column: 1 / -1; margin-top: 1rem;">
+                    <h3>Business Description</h3>
+                    <p id="display-description">Loading...</p>
+                </div>
+            </div>
+
+            <div class="next-steps">
+                <h2>What's Next?</h2>
+                <ul>
+                    <li>You will receive a confirmation email within 24 hours</li>
+                    <li>Our membership team will review your application</li>
+                    <li>We will contact you for any additional information needed</li>
+                    <li>Once approved, you'll receive your membership package</li>
+                    <li>You'll gain access to all member benefits immediately</li>
+                </ul>
+                <a href="index.html" class="cta-button">Return to Home</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="contact-info">
+                <h3>Contact Information</h3>
+                <p><strong>Address:</strong> 123 Business Avenue, Harare, Zimbabwe</p>
+                <p><strong>Phone:</strong> +263 4 123-4567</p>
+                <p><strong>Email:</strong> info@hararechamber.org</p>
+            </div>
+
+            <div class="social-media">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#" aria-label="Our Facebook Page">
+                        <img src="images/facebook.PNG" alt="Facebook" width="30" height="30" loading="lazy" />
+                    </a>
+                    <a href="#" aria-label="Our Twitter Profile">
+                        <img src="images/twitter.PNG" alt="Twitter" width="30" height="30" loading="lazy" />
+                    </a>
+                    <a href="#" aria-label="Our LinkedIn Profile">
+                        <img src="images/linkedin.PNG" alt="LinkedIn" width="30" height="30" loading="lazy" />
+                    </a>
+                </div>
+            </div>
+
+            <div class="site-info">
+                <h3>Site Information</h3>
+                <p>&copy; <span id="copyright-year"></span> Harare Chamber of Commerce</p>
+                <p><strong>Developer:</strong> Clemence K Matsika</p>
+                <p><strong>Course:</strong> WDD 231</p>
+                <p><strong>Last Modified:</strong> <span id="last-modified"></span></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Get URL parameters and display form data
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+
+            // Helper function to get and display parameter
+            function displayParam(paramName, elementId) {
+                const value = urlParams.get(paramName);
+                const element = document.getElementById(elementId);
+                if (element && value) {
+                    element.textContent = value;
+                }
+            }
+
+            // Display all form data
+            displayParam('fname', 'display-fname');
+            displayParam('lname', 'display-lname');
+            displayParam('title', 'display-title');
+            displayParam('email', 'display-email');
+            displayParam('phone', 'display-phone');
+            displayParam('organization', 'display-organization');
+            displayParam('timestamp', 'display-timestamp');
+
+            // Handle membership level display
+            const membership = urlParams.get('membership');
+            const membershipElement = document.getElementById('display-membership');
+            if (membershipElement && membership) {
+                const membershipNames = {
+                    'np': 'NP Membership (Non-Profit)',
+                    'bronze': 'Bronze Membership',
+                    'silver': 'Silver Membership',
+                    'gold': 'Gold Membership'
+                };
+                membershipElement.textContent = membershipNames[membership] || membership;
+            }
+
+            // Handle description display
+            const description = urlParams.get('description');
+            const descriptionElement = document.getElementById('display-description');
+            if (descriptionElement) {
+                descriptionElement.textContent = description || 'No description provided';
+            }
+
+            // Mobile navigation
+            const nav = document.getElementById('site-nav');
+            const toggle = nav ? nav.querySelector('.nav-toggle') : null;
+            if (toggle && nav) {
+                toggle.addEventListener('click', () => {
+                    const isOpen = nav.classList.toggle('open');
+                    toggle.setAttribute('aria-expanded', String(isOpen));
+                });
+            }
+        });
+    </script>
+</body>
+</html>
